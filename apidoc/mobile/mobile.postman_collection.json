@@ -1,0 +1,980 @@
+{
+	"info": {
+		"_postman_id": "be2c92ef-daf8-4e81-ba91-1a5e74862cf9",
+		"name": "mobile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Register subject user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspace\": \"qwe\",\n    \"email\": \"email@email.com\",\n\t\"password\":\"2SmartAccess\",\n\t\"passwordConfirm\":\"2SmartAccess\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/register",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request email with code to reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspace\": \"qwe\",\n    \"email\": \"email@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/requestPasswordReset",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"requestPasswordReset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show admin profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/profile",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show admin mqtt credentials",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/mqttCredentials",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"mqttCredentials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh api token",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newPassword\": \"newPassword\",\n    \"passwordConfirm\": \"newPassword\",\n    \"oldPassword\": \"2SmartAccess\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/profile",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate reset-password-code against reset-password-token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"token from RequestPasswordReset response\",\n    \"code\": \"6-digit code from email\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/validatePasswordResetCode",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"validatePasswordResetCode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset subject user's password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"token from RequestPasswordReset response\",\n    \"code\": \"6-digit code from email\",\n\t\"password\":\"2SmartAccess\",\n\t\"passwordConfirm\":\"2SmartAccess\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/passwordReset",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"passwordReset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset subject user's password Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/profile",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "session",
+			"item": [
+				{
+					"name": "Create jwt tokens",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspace\": \"qwe\",\n    \"email\": \"email@email.com\",\n    \"password\": \"2SmartAccess\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/login",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create jwt tokens by token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxNjMzOTYxMTYzNzY5NjI0IiwiaWF0IjoxNjM0MDMxOTE4fQ.2bFNEB7NGJzUNxKYrV9rnIUQDN-l5VE9g0kkFbNINWg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/login",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "references",
+			"item": [
+				{
+					"name": "Get list of notifications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/references",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"references"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show notification type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/references/{{REF_NAME}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"references",
+								"{{REF_NAME}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessReaderMobileGroups",
+			"item": [
+				{
+					"name": "Create access reader mobile group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"namegroup-test\",\n    \"logoType\": \"house\",\n    \"logoColor\" : \"#DF3FDF\",\n    \"accessTokenReaderIds\":[\"1631884913599165\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-reader-groups",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-reader-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of access reader mobile groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-reader-groups",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-reader-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get logos for mobile groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-reader-groups/logos",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-reader-groups",
+								"logos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show access reader mobile group",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-reader-groups/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-reader-groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access reader mobile group",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"namegroup-test\",\n    \"logoType\": \"house\",\n    \"logoColor\" : \"#DF3FDF\",\n    \"accessTokenReaderIds\":[\"1631884913599165\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-reader-groups/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-reader-groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access reader mobile group Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-reader-groups/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-reader-groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessTokenReaders",
+			"item": [
+				{
+					"name": "Get list of access token readers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-token-readers",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-token-readers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Open access token reader",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-token-readers/{{ID}}/open",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-token-readers",
+								"{{ID}}",
+								"open"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Open access token reader's",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accessTokenReadersOrder\": [{{ID}}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-token-readers/saveOrder",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-token-readers",
+								"saveOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access token reader",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accessTokenReaderId\": {{ID}},\n    \"customName\": \"bridge-1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-token-readers",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-token-readers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessSubjectToken",
+			"item": [
+				{
+					"name": "Get list of accesssubject tokens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-subject-tokens",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-subject-tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detach access subject token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-subject-tokens/{{ID}}/detach",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-subject-tokens",
+								"{{ID}}",
+								"detach"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attach access subject token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1631884930944655\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-subject-tokens/attach/id",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-subject-tokens",
+								"attach",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable access subject token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-subject-tokens/{{ID}}/disable",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-subject-tokens",
+								"{{ID}}",
+								"disable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enable access subject token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-subject-tokens/{{ID}}/enable",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-subject-tokens",
+								"{{ID}}",
+								"enable"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessSubject",
+			"item": [
+				{
+					"name": "Show access subject",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-subject",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-subject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show or hide readers groups",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"showReaderGroups\" : \"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/mobile/access-subject/reader-groups/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile",
+								"access-subject",
+								"reader-groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "JWT",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxNjMzOTYxMTYzNzY5NjI0IiwiaWF0IjoxNjM0MDMwNzk0fQ.tEa-QIfVeG5p4fH9A37yA_EMKj3WbHheosplPBpBl9M"
+		},
+		{
+			"key": "PROTOCOL",
+			"value": "http"
+		},
+		{
+			"key": "HOSTNAME",
+			"value": "localhost"
+		},
+		{
+			"key": "ID",
+			"value": ""
+		},
+		{
+			"key": "REF_NAME",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,2153 @@
+{
+	"info": {
+		"_postman_id": "1e3ffd9d-c2e7-415f-89dd-957428bbbbfc",
+		"name": "admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "accessSubject",
+			"item": [
+				{
+					"name": "Get list of access subjects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subjects",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show access subject",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subjects/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subjects",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create access subject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"avatarImg\": {\n        \"buffer\"       : \"buffer\",\n        \"mimetype\"     : \"image/png\",\n        \"originalname\" : \"name\"\n    },\n    \"name\":\"name\",\n    \"position\":\"position\",\n    \"email\": \"email@email.com\",\n    \"phone\": \"+380930000000\",\n    \"phoneEnabled\": true,\n    \"accessSubjectTokenIds\": [\"1631884925698545\"],\n    \"mobileEnabled\": true,\n    \"sendInvitation\": false,\n    \"canAttachTokens\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subjects",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access subject",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"avatarImg\": {\n        \"buffer\"       : \"buffer\",\n        \"mimetype\"     : \"image/png\",\n        \"originalname\" : \"name\"\n    },\n    \"name\":\"name3]\",\n    \"position\":\"position\",\n    \"email\": \"email@email.com\",\n    \"phone\": \"+380930000000\",\n    \"phoneEnabled\": true,\n    \"accessSubjectTokenIds\": [\"1631884925698545\"],\n    \"mobileEnabled\": true,\n    \"canAttachTokens\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subjects/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subjects",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access subject",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"avatarImg\": {\n        \"buffer\"       : \"buffer\",\n        \"mimetype\"     : \"image/png\",\n        \"originalname\" : \"name\"\n    },\n    \"name\":\"name3]\",\n    \"position\":\"position\",\n    \"email\": \"email@email.com\",\n    \"phone\": \"+380930000000\",\n    \"phoneEnabled\": true,\n    \"accessSubjectTokenIds\": [\"1631884925698545\"],\n    \"mobileEnabled\": true,\n    \"canAttachTokens\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subjects/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subjects",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invite access subject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subjects/invite/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subjects",
+								"invite",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export subjects to csv file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subjects/export/csv",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subjects",
+								"export",
+								"csv"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete access subject",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subjects/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subjects",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "session",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"admin@admin.com\",\n    \"password\": \"newPassword\"\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/login",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create (by token)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"{{JWT}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/login",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessAPISettings",
+			"item": [
+				{
+					"name": "Show api token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-api-settings",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-api-settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh api token",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-api-settings/refresh",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-api-settings",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessShedules",
+			"item": [
+				{
+					"name": "Create access schedule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"name\": \"schedule122\",\n     \"enabled\" : true,\n     \"isArchived\" : false,\n     \"dates\":[\n \t\t{\n \t\t\t\"from\" : 1593170173244,\n \t\t\t\"to\"   : 1593170173245,\n \t\t\t\"weekBitMask\": [1,1,0,1,1,1,1],\n \t\t\t\"monthBitMask\": null,\n \t\t\t\"dailyIntervalStart\" : 60000,\n \t\t\t\"dailyIntervalEnd\"   : 120000\n \t\t}\n \t]\n }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-schedules",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-schedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create access schedule (unlimited accsess)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"name\": \"unlimited_access\",\n     \"enabled\" : true,\n     \"isArchived\" : false,\n     \"dates\":[\n \t\t{\n \t\t\t\"weekBitMask\": [1,1,1,1,1,1,1],\n \t\t\t\"monthBitMask\": null,\n \t\t\t\"dailyIntervalStart\" : 0,\n \t\t\t\"dailyIntervalEnd\"   : 86340000\n \t\t}\n \t]\n }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-schedules",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-schedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete access shedule",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-schedules/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-schedules",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET list of access shedules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-schedules",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-schedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show access schedule",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-schedules/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-schedules",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access schedule",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"name\": \"schedule122\",\n     \"enabled\" : true,\n     \"isArchived\" : false,\n     \"dates\":[\n \t\t{\n \t\t\t\"from\" : 1593170173244,\n \t\t\t\"to\"   : 1593170173245,\n \t\t\t\"weekBitMask\": [1,1,0,1,1,1,1],\n \t\t\t\"monthBitMask\": null,\n \t\t\t\"dailyIntervalStart\" : 60000,\n \t\t\t\"dailyIntervalEnd\"   : 120000\n \t\t}\n \t]\n }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-schedules/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-schedules",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessSettings",
+			"item": [
+				{
+					"name": "Get list of access settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-settings",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get access setting",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-settings/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-settings",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create access setting",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accessReadersGroupIds\": [\"1632138766904444\"],\n    \"accessTokenReaderIds\": [\"1631884913350155\"],\n    \"accessScheduleIds\": [\"1632138766901313\"],\n    \"accessSubjectIds\": [\"1631884982726866\"],\n    \"enabled\" : true,\n    \"isArchived\" : false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-settings",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access setting",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accessReadersGroupIds\": [],\n    \"accessTokenReaderIds\": [\"1631884913350155\"],\n    \"accessScheduleIds\": [\"1632138766901313\"],\n    \"accessSubjectIds\": [\"1631884982726866\"],\n    \"enabled\" : true,\n    \"isArchived\" : false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-settings/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-settings",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access setting",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accessReadersGroupIds\": [],\n    \"accessTokenReaderIds\": [\"1631884913350155\"],\n    \"accessScheduleIds\": [\"1632138766901313\"],\n    \"accessSubjectIds\": [\"1631884982726866\"],\n    \"enabled\" : true,\n    \"isArchived\" : false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-settings/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-settings",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete access settings",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-settings/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-settings",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessSubjectTokens",
+			"item": [
+				{
+					"name": "Bulk Create access subject tokens",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"data\": [\n\t\t{\n\t\t\t\"name\" : \"name 1\",\n\t\t\t\"code\" : \"CODE1\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"name 2\",\n\t\t\t\"code\" : \"CODE2\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subject-tokens/bulk-create",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subject-tokens",
+								"bulk-create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create access subject token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"code6\",\n    \"code\": \"CODE6\",\n    \"enabled\": true,\n    \"type\":\"RFID\",\n    \"isArchived\":false,\n    \"accessSubjectId\": \"1631885019231767\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subject-tokens",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subject-tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete access subject token",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subject-tokens/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subject-tokens",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export subjects tokens to csv file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subject-tokens/export/csv",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subject-tokens",
+								"export",
+								"csv"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of access subject tokens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subject-tokens",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subject-tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show access subject token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"data\": [\n\t\t{\n\t\t\t\"name\" : \"name 1\",\n\t\t\t\"code\" : \"CODE1\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"name 2\",\n\t\t\t\"code\" : \"CODE2\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subject-tokens/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subject-tokens",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access subject token",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"code 1\",\n    \"code\": \"GT5CD1\",\n\t\"type\":\"RFID\",\n    \"enabled\": true,\n    \"isArchived\":false,\n    \"accessSubjectId\": \"1631885019231767\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-subject-tokens/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-subject-tokens",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessTokenReaders",
+			"item": [
+				{
+					"name": "Create access token reader",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"name123\",\n    \"code\": \"code123\",\n    \"phone\": \"+380682643916\",\n    \"enabled\": true,\n    \"isArchived\": false,\n    \"accessReadersGroupIds\":[\"1633865289879327\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-token-readers",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-token-readers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete access token readers",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-token-readers/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-token-readers",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of access token readers connection statuses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-token-readers/connection-statuses",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-token-readers",
+								"connection-statuses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of access token readers phones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-token-readers/phone-numbers",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-token-readers",
+								"phone-numbers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of access token readers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-token-readers",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-token-readers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show access token reader",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-token-readers/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-token-readers",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access token reader",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"name123\",\n    \"code\": \"code123\",\n    \"phone\": \"+380682643916\",\n    \"enabled\": true,\n    \"isArchived\": false,\n    \"accessReadersGroupIds\":[\"1633865289879327\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-token-readers/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-token-readers",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "adminUsers",
+			"item": [
+				{
+					"name": "Show admin mqtt credentials",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/mqttCredentials",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"mqttCredentials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register admin user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspace\": \"workspace\",\n\t\"login\":\"admin@admin.com\",\n    \"timezone\": \"(UTC+02:00) E. Europe\",\n\t\"password\":\"2SmartAccess\",\n\t\"passwordConfirm\":\"2SmartAccess\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/register",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show admin profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/profile",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh api token",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"admin@admin.com\",\n    \"newPassword\": \"newPassword1\",\n    \"passwordConfirm\": \"newPassword1\",\n    \"oldPassword\": \"newPassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/profile",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request email with token to reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"admin@admin.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/requestPasswordReset",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"requestPasswordReset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset admin's password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"token  from email\",\n    \"password\" : \"12345678\",\n    \"passwordConfirm\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/passwordReset",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"passwordReset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessReaderGroups",
+			"item": [
+				{
+					"name": "Create access reader group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"namegroup121\",\n    \"color\" : \"#9E60EF\",\n    \"accessTokenReaderIds\":[\"1633865346690059\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-reader-groups",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-reader-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of access reader groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-reader-groups",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-reader-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show access reader group",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-reader-groups/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-reader-groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access reader group",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"namegroup121\",\n    \"color\" : \"#9E60EF\",\n    \"accessTokenReaderIds\":[\"1633865346690059\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-reader-groups/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-reader-groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete access reader group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-reader-groups/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-reader-groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessCameras",
+			"item": [
+				{
+					"name": "Create access cameras",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"name\",\n    \"rtspUrl\": \"rtsp://admin:admin@192.168.4.1:512/url\",\n    \"accessTokenReaderIds\":[\"1633865346690059\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-cameras",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-cameras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of access cameras",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-cameras",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-cameras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show access camera",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-cameras/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-cameras",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update access camera",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"name\",\n    \"rtspUrl\": \"rtsp://admin:admin@192.168.0.3:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif\",\n    \"accessTokenReaderIds\":[\"1633865346690059\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-cameras/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-cameras",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete access camera",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-cameras/{{ID}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-cameras",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accessLogs",
+			"item": [
+				{
+					"name": "Get list of access logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/access-logs",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"access-logs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "utils",
+			"item": [
+				{
+					"name": "Csv to json",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": []
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/utils/csv-to-json",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"utils",
+								"csv-to-json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notifications",
+			"item": [
+				{
+					"name": "Get list of notifications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/notifications",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate notifications",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ids\": [\"1633454173357221\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/notifications/activate",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"notifications",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate notifications",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ids\": [\"1633454173357221\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/notifications/deactivate",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"notifications",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "references",
+			"item": [
+				{
+					"name": "Get list of references",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/references",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"references"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show reference",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/references/{{REF_NAME}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"references",
+								"{{REF_NAME}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reportedIssues",
+			"item": [
+				{
+					"name": "Create reported issue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"Something went wrong\",\n    \"type\": \"web_app\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/reported-issues",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"reported-issues"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "workspace-settings",
+			"item": [
+				{
+					"name": "GET Workspace settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/workspace/settings",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"workspace",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Workspace settings",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-AuthToken",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"notificationTypes\": [\"USER_ACTIONS\", \"READER_STATE\", \"ACCESS_ATTEMPTS\"],\n    \"timezone\": \"(UTC+02:00) E. Europe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/admin/workspace/settings",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"workspace",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "JWT",
+			"value": "your-token"
+		},
+		{
+			"key": "PROTOCOL",
+			"value": "http"
+		},
+		{
+			"key": "HOSTNAME",
+			"value": "localhost"
+		},
+		{
+			"key": "ID",
+			"value": "0"
+		},
+		{
+			"key": "REF_NAME",
+			"value": ""
+		}
+	]
+}

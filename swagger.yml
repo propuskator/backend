@@ -1,0 +1,761 @@
+swagger: '2.0'
+
+info:
+  version: "1.0.0"
+  title: Access Control API
+  description: API documentation for Node.js application
+
+# Describe your paths here
+host: localhost:8000
+basePath: /api/v1/admin
+
+tags:
+  - name: Login
+  - name: AccessTags
+  - name: Employees
+  - name: AccessAreas
+  - name: AccessPoints
+
+paths:
+  /login:
+    post:
+      tags:
+        - Login
+      description: |
+        Create a `Session`
+      parameters:
+        - in: body
+          name: Login
+          schema:
+            type: object
+            properties:
+              login:
+                type: string
+                description: User login
+              password:
+                type: string
+                description: User password
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  type: object
+                  properties:
+                    jwt:
+                      type: string
+                      description: JWT token,
+                      example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJsb2dpbiI6ImFkbWluIiwiY3JlYXRlZEF0IjoiMjAyMC0wMy0xN1QxNjo1NjoxNi40NTRaIiwidXBkYXRlZEF0IjoiMjAyMC0wMy0xN1QxNjo1NjoxNi40NTRaIiwiaWF0IjoxNTg0NTQyNzcwfQ.xESV_aSUH_pBlQ3XGAHclJJYDVZ1DfXVY8cLVAuVwKc'
+
+  /access-tags:
+    post:
+      tags: 
+        - AccessTags
+      description: 'Create access tag'
+      parameters:
+        - in: body
+          name: 'Body'
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: 'AC'
+              type:
+                type: string
+                example: 'NFC'
+              enabled:
+                type: boolean
+                example: true
+              isArchived:
+                type: boolean
+                example: false
+                 
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessTag'
+    get:
+      tags: 
+        - AccessTags
+      description: 'Get list of access tags'
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+        - in: query
+          name: offset
+          type: integer
+        - in: query
+          name: sortedBy
+          type: integer
+        - in: query
+          name: order
+          type: integer
+        - in: query
+          name: search
+          type: string
+        - in: query
+          name: type
+          type: string
+          enum:
+            - NFC
+            - RFID
+        - in: query
+          name: updateStart
+          type: string
+          description: Date
+        - in: query
+          name: updateEnd
+          type: string
+          description: Date
+        - in: query
+          name: createStart
+          type: string
+          description: Date
+        - in: query
+          name: createEnd
+          type: string
+          description: Date
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AccessTag'
+  /access-tags/{id}:
+    get:
+      tags: 
+        - AccessTags
+      description: Get access tag info
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessTag'
+    patch:
+      tags:
+        - AccessTags
+      description: Update employee
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+        - in: body
+          name: 'Body'
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: 'AC'
+              type:
+                type: string
+                example: 'NFC'
+              enabled:
+                type: boolean
+                example: true
+              isArchived:
+                type: boolean
+                example: false
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessTag'
+  /access-areas:
+    post:
+      tags:
+        - AccessAreas
+      description: |
+        Create an access area
+      parameters:
+        - in: body
+          name: AccessArea
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'Area name'
+              color:
+                type: string
+                example: '#ff0000'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessArea'
+    get:
+      tags: 
+        - AccessAreas
+      description: 'Get list of access areas'
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+        - in: query
+          name: offset
+          type: integer
+        - in: query
+          name: sortedBy
+          type: string
+        - in: query
+          name: order
+          type: string
+        - in: query
+          name: search
+          type: string
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AccessArea'
+  /access-areas/{id}:
+    get:
+      tags: 
+        - AccessAreas
+      description: Get access area info
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessArea'
+    patch:
+      tags:
+        - AccessAreas
+      description: Update access area
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+        - in: body
+          name: 'Body'
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'Area name'
+              color:
+                type: string
+                example: '#ff0000'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessArea'
+    delete:
+      tags: 
+        - AccessAreas
+      description: Delete access area
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+  /access-points:
+    post:
+      tags:
+        - AccessPoints
+      description: |
+        Create an access point
+      parameters:
+        - in: body
+          name: AccessPoint
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'Point 1'
+              enabled:
+                type: boolean
+                example: true
+              isArchived:
+                type: boolean
+                example: false
+              areaId:
+                type: array
+                items:
+                  type: integer
+                example:
+                  - 1
+                  - 2
+                  - 3
+                  
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessPoint'
+    get:
+      tags: 
+        - AccessPoints
+      description: 'Get list of access points'
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+        - in: query
+          name: offset
+          type: integer
+        - in: query
+          name: sortedBy
+          type: integer
+        - in: query
+          name: order
+          type: integer
+        - in: query
+          name: search
+          type: string
+        - in: query
+          name: stateStatus
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+            - DISCONNECTED
+        - in: query
+          name: updateStart
+          type: string
+          description: Date
+        - in: query
+          name: updateEnd
+          type: string
+          description: Date
+        - in: query
+          name: createStart
+          type: string
+          description: Date
+        - in: query
+          name: createEnd
+          type: string
+          description: Date
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AccessTag'
+  /access-points/{id}:
+    get:
+      tags: 
+        - AccessPoints
+      description: Get access point info
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessPoint'
+    patch:
+      tags:
+        - AccessPoints
+      description: Update access point
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+        - in: body
+          name: 'Body'
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'Point 1'
+              enabled:
+                type: boolean
+                example: true
+              isArchived:
+                type: boolean
+                example: false
+              areaId:
+                type: array
+                items:
+                  type: integer
+                example:
+                  - 1
+                  - 2
+                  - 3
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/AccessPoint'
+  
+  /employees:
+    post:
+      tags:
+        - Employees
+      summary: Create an employee
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: formData
+          name: avatarImg
+          type: file
+        - in: formData
+          required: true
+          name: firstName
+          type: string
+        - in: formData
+          name: secondName
+          type: string
+        - in: formData
+          required: true
+          name: lastName
+          type: string
+        - in: formData
+          name: position
+          type: string
+        - in: formData
+          name: email
+          type: string
+        - in: formData
+          name: phone
+          type: string
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/Employee'
+    get:
+      tags: 
+        - Employees
+      summary: Get list of employees.
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+        - in: query
+          name: offset
+          type: integer
+        - in: query
+          name: sortedBy
+          type: integer
+        - in: query
+          name: order
+          type: integer
+        - in: query
+          name: search
+          type: string
+        - in: query
+          name: updateStart
+          type: string
+        - in: query
+          name: updateEnd
+          type: string
+        - in: query
+          name: createStart
+          type: string
+        - in: query
+          name: createEnd
+          type: string
+        - in: query
+          name: accessTagId
+          type: integer
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Employee'
+  /employees/{id}:
+    get:
+      tags: 
+        - Employees
+      summary: Get an employee info
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/Employee'
+    patch:
+      tags:
+        - Employees
+      summary: Update employee
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          type: integer
+        - in: formData
+          name: avatarImg
+          type: file
+        - in: formData
+          required: true
+          name: firstName
+          type: string
+        - in: formData
+          name: secondName
+          type: string
+        - in: formData
+          required: true
+          name: lastName
+          type: string
+        - in: formData
+          name: position
+          type: string
+        - in: formData
+          name: email
+          type: string
+        - in: formData
+          name: phone
+          type: string
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+                status:
+                  type: integer
+                  example: 1
+                data:
+                  $ref: '#/components/schemas/Employee'
+
+components:
+  schemas:
+    AccessTag:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        code:
+          type: string
+          example: 'AC'
+        type:
+          type: string
+          example: 'NFC'
+        enabled:
+          type: boolean
+          example: true
+        isArchived:
+          type: boolean
+          example: false
+        createdAt: 
+          type: string
+          example: '2020-03-18T15:14:21.231Z'
+        updatedAt: 
+          type: string
+          example: '2020-03-18T15:14:21.231Z'
+    AccessArea:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: 'Area name'
+        color:
+          type: string
+          example: '#ff0000'
+    AccessPoint:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: 'Point 1'
+        stateStatus:
+          type: string
+          example: 'DISCONNECTED'
+        enabled:
+          type: boolean
+          example: true
+        isArchived:
+          type: boolean
+          example: false
+        activeAt: 
+          type: string
+          example: '2020-03-18T15:14:21.231Z'
+        createdAt: 
+          type: string
+          example: '2020-03-18T15:14:21.231Z'
+        updatedAt: 
+          type: string
+          example: '2020-03-18T15:14:21.231Z'
+    Employee:
+      properties:
+        id:
+          type: integer
+          example: 1
+        firstName:
+          type: string
+          example: 'Test'
+        secondName:
+          type: string
+          example: 'Test'
+        lastName:
+          type: string
+          example: 'Test'
+        fullName:
+          type: string
+          example: 'Test Test Test'
+        position:
+          type: string
+          example: 'Test position'
+        email:
+          type: string
+          example: 'test1@mail.com'
+        phone:
+          type: string
+          example: '+380665927909'
+        avatar: 
+          type: string
+          example: '1b659889-d23b-49cd-85c0-eb9464076b48.png'
+        enabled: 
+          type: boolean
+          example: true
+        isArchived: 
+          type: boolean
+          example: false
+        createdAt: 
+          type: string
+          example: '2020-03-18T15:14:21.231Z'
+        updatedAt: 
+          type: string
+          example: '2020-03-18T15:14:21.231Z'
+
+      
+

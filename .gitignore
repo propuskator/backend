@@ -1,0 +1,14 @@
+node_modules/
+npm-debug.log
+coverage/
+logs/*
+.env
+storage/*
+.idea
+test.js
+.DS_Store
+tests_old
+etc/ssl
+./export.js
+./import.js
+dump.json

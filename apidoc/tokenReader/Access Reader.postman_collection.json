@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "6c9fe0aa-e9d0-480c-8050-5637b1057850",
+		"name": "Access Reader",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "accessLogs",
+					"item": [
+						{
+							"name": "POST LOGS",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-AuthToken",
+										"value": "{{WORKSPACE_TOKEN}}",
+										"type": "text"
+									},
+									{
+										"key": "X-AuthReader",
+										"value": "{{READER_ID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "1632851634_MTKA_1"
+								},
+								"url": {
+									"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/token-reader/access-logs",
+									"protocol": "{{PROTOCOL}}",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token-reader",
+										"access-logs"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "accessTokens",
+					"item": [
+						{
+							"name": "SYNC RULES",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-AuthToken",
+										"value": "{{WORKSPACE_TOKEN}}",
+										"type": "text"
+									},
+									{
+										"key": "X-AuthReader",
+										"value": "{{READER_ID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "323213312%code1,code2"
+								},
+								"url": {
+									"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/token-reader/access-tokens/sync",
+									"protocol": "{{PROTOCOL}}",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token-reader",
+										"access-tokens",
+										"sync"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "time",
+					"item": [
+						{
+							"name": "GET TIME",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-AuthToken",
+										"value": "{{WORKSPACE_TOKEN}}"
+									},
+									{
+										"key": "X-AuthReader",
+										"value": "{{READER_ID}}"
+									}
+								],
+								"url": {
+									"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v1/token-reader/time",
+									"protocol": "{{PROTOCOL}}",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token-reader",
+										"time"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "v2",
+			"item": [
+				{
+					"name": "time",
+					"item": [
+						{
+							"name": "GET TIME",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-AuthToken",
+										"value": "{{WORKSPACE_TOKEN}}"
+									},
+									{
+										"key": "X-AuthReader",
+										"value": "{{READER_ID}}"
+									}
+								],
+								"url": {
+									"raw": "{{PROTOCOL}}://{{HOSTNAME}}/api/v2/token-reader/time",
+									"protocol": "{{PROTOCOL}}",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"token-reader",
+										"time"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "PROTOCOL",
+			"value": "http"
+		},
+		{
+			"key": "HOSTNAME",
+			"value": "localhost"
+		},
+		{
+			"key": "WORKSPACE_TOKEN",
+			"value": "_sUjJrOwkUrwPa03hbP7"
+		},
+		{
+			"key": "READER_ID",
+			"value": "bridge-1"
+		}
+	]
+}

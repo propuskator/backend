@@ -1,0 +1,10 @@
+.git/
+node_modules/
+.gitignore
+.eslintignore
+.gitlab-ci.yml
+README.md
+swagger.yml
+.eslintrc
+README.md
+apidoc/

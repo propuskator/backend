@@ -1,0 +1,51 @@
+# Create access token reader
+
+## Request
+    POST /api/v1/admin/access-token-readers
+
+##### Body
+```JSON5
+{
+    "name": "name123", // required, unique token reader name
+    "code": "code123", // required, unique token reader code
+    "phone": "+380682643916",
+    "enabled": true, // optional, default: true, true/false
+    "isArchived": false, // optional, default: false, true/false
+    "accessReadersGroupIds": ["1633865289879327"] // optional
+}
+```
+
+## Response
+
+```JSON5
+{
+    "status": 1,
+    "data": {
+        "id": "1633865346690059",
+        "code": "code123",
+        "name": "name123",
+        "phone": "+380682643916",
+        "stateStatus": "INACTIVE",
+        "connectionStatus": {
+            "color": "yellow",
+            "title": "Init"
+        },
+        "enabled": true,
+        "isArchived": false,
+        "activeAt": null,
+        "createdAt": "2021-10-10T11:29:06.466Z",
+        "updatedAt": "2021-10-10T11:29:06.459Z",
+        "accessReadersGroups": [
+            {
+                "id": "1633865289879327",
+                "name": "namegroup121",
+                "enabled": true,
+                "isArchived": false,
+                "color": "#FDE149",
+                "createdAt": "2021-10-10T11:28:09.361Z",
+                "updatedAt": "2021-10-10T11:28:09.361Z"
+            }
+        ]
+    }
+}
+```
